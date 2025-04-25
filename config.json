@@ -1,18 +1,18 @@
 {
     "project": {
-        "name": "mybgg",
-        "title": ""
+        "name": "BG Ehsanbz",
+        "title": "BG Ehsanbz"
     },
     "boardgamegeek": {
-        "user_name": "YOUR_BGG_USERNAME",
+        "user_name": "ehsanbz",
         "extra_params": {
             "own": 1
         }
     },
     "algolia": {
-        "app_id": "YOUR_APP_ID",
-        "api_key_search_only": "YOUR_PUBLIC_API_KEY",
-        "index_name": "YOUR_INDEX_NAME",
-        "hits_per_page": 24
+        "app_id": "L7CTQV03M7",
+        "api_key_search_only": "92823387cf94c1ed4da0a463d04f83e0",
+        "index_name": "mybgg",
+        "hits_per_page": 30
     }
 }
