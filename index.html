@@ -12,31 +12,46 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;display=swap">
 </head>
 <body>
-  <header class="search">
-    <img class="logo" src="favicon.ico" height="36" width="36">
-    <div class="search-box" id="search-box"></div>
-    <label>Sort by:</label>
-    <div class="sort-by" id="sort-by"></div>
-    <div class="stats" id="stats"></div>
-    <a class="ref" href="https://www.algolia.com"><img src="search-by-algolia.png" width="130" height="18"></a>
-  </header>
-  <article class="wrapper">
-    <aside class="facets">
-      <div class="facet" id="facet-players" tabindex="0"></div>
-      <div class="facet" id="facet-playing-time" tabindex="0"></div>
-      <div class="facet" id="facet-weight" tabindex="0"></div>
-      <div class="facet" id="facet-categories" tabindex="0"></div>
-      <div class="facet" id="facet-mechanics" tabindex="0"></div>
-      <div class="facet" id="facet-min-age" tabindex="0"></div>
-      <div class="facet" id="facet-previous-players" tabindex="0"></div>
-      <div class="facet" id="facet-numplays" tabindex="0"></div>
-      <div class="clear-all" id="clear-all"></div>
+  <div class="layout">
+    <aside class="sidebar">
+      <img class="sidebar-logo" src="Browserstack-logo@2x.png" alt="Logo" />
+      <h2>My BGG</h2>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="https://boardgamegeek.com/" target="_blank">BoardGameGeek</a>
+        <a href="#">About</a>
+      </nav>
     </aside>
-    <main class="results">
-      <div class="hits" id="hits"></div>
-      <div id="pagination"></div>
-    </main>
-  </article>
+
+    <div class="content-area">
+      <header class="search">
+        <img class="logo" src="favicon.ico" height="36" width="36">
+        <div class="search-box" id="search-box"></div>
+        <label>Sort by:</label>
+        <div class="sort-by" id="sort-by"></div>
+        <div class="stats" id="stats"></div>
+        <a class="ref" href="https://www.algolia.com"><img src="search-by-algolia.png" width="130" height="18"></a>
+      </header>
+
+      <article class="wrapper">
+        <aside class="facets">
+          <div class="facet" id="facet-players" tabindex="0"></div>
+          <div class="facet" id="facet-playing-time" tabindex="0"></div>
+          <div class="facet" id="facet-weight" tabindex="0"></div>
+          <div class="facet" id="facet-categories" tabindex="0"></div>
+          <div class="facet" id="facet-mechanics" tabindex="0"></div>
+          <div class="facet" id="facet-min-age" tabindex="0"></div>
+          <div class="facet" id="facet-previous-players" tabindex="0"></div>
+          <div class="facet" id="facet-numplays" tabindex="0"></div>
+          <div class="clear-all" id="clear-all"></div>
+        </aside>
+        <main class="results">
+          <div class="hits" id="hits"></div>
+          <div id="pagination"></div>
+        </main>
+      </article>
+    </div>
+  </div>
 
   <script type="text/html" id="hits-template">
     <details class="game-wrapper">
