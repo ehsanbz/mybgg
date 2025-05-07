@@ -449,7 +449,7 @@ body {
 
 @media (max-width: 768px) {
   .logo {
-    display: none;
+    display: none !important;
   }
 }
 
