@@ -449,7 +449,9 @@ body {
 
 @media (max-width: 768px) {
   .logo {
-    content: url("transparent.png");
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAAxQTFRFAAAA////AAAAAAAAAAAChP9eAAAACF0Uk5TAEDm2GYAAABTSURBVHja7NaxDQAwCAMBx/+/5w2lEzgCZdRh
+Op6nFyEpF9J6KbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKbjqKboE6AHBToWnZZGHPFAAAAABJRU5ErkJggg==");
   }
 }
 
