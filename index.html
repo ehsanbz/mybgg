@@ -12,7 +12,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;display=swap">
 </head>
 <body>
-  <button class="menu-toggle">&#9776;</button>
+  <button class="menu-toggle" aria-label="Toggle menu">
+    <span class="icon">&#9776;</span>
+  </button>
   <div class="layout">
     <aside class="sidebar">
       <img class="sidebar-logo" src="profile.png" alt="Logo" />
@@ -132,8 +134,11 @@
   document.addEventListener('DOMContentLoaded', function () {
     const toggleButton = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
+    const icon = toggleButton.querySelector('.icon');
+
     toggleButton.addEventListener('click', () => {
       sidebar.classList.toggle('active');
+      icon.innerHTML = sidebar.classList.contains('active') ? '&times;' : '&#9776;';
     });
   });
 </script>
