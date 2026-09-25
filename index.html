@@ -3,7 +3,8 @@
 <head>
   <title>All my boardgames</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.7">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2c3e50">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.1.0/dist/algoliasearch-lite.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.3.1/dist/instantsearch.production.min.js"></script>
@@ -12,19 +13,30 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,700&amp;display=swap">
 </head>
 <body>
-  <button class="menu-toggle" aria-label="Toggle menu">
-    <span class="icon">&#9776;</span>
+  <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-sidebar" aria-expanded="false">
+    <span class="icon" aria-hidden="true">&#9776;</span>
   </button>
   <div class="layout">
-    <aside class="sidebar">
-      <img class="sidebar-logo" src="profile.png" alt="Logo" />
-      <h2>Ehsan's Boardgames</h2>
-      <nav>
-        <a href="https://www.ehsan.bz">Home</a>
-        <a href="https://blog.ehsan.bz">Blog (Persian)</a>
-        <a href="https://boardgamegeek.com/user/ehsanbz" target="_blank">BoardGameGeek</a>
-        <a href="https://ehsan.bz/about">About</a>
+    <aside class="sidebar" id="site-sidebar" aria-label="Site navigation">
+      <a class="sidebar-brand" href="https://www.ehsan.bz/" aria-label="Ehsan Bagherzadeh main website">
+        <img class="sidebar-logo" src="profile.png" alt="" />
+      </a>
+      <h2>Ehsan's Board Games</h2>
+      <nav aria-label="Ehsan's sites">
+        <a href="https://www.ehsan.bz/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span>Home</span></a>
+        <a href="https://photos.ehsan.bz/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="m7 7 2-3h6l2 3"/><circle cx="12" cy="14" r="3.5"/></svg><span>Photography</span></a>
+        <a href="https://blog.ehsan.bz/"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 3h10l4 4v14H5z M15 3v4h4 M8 12h8 M8 16h8"/></svg><span>Blog (Persian)</span></a>
+        <a href="/" aria-current="page"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg><span>Board Games</span></a>
+        <a href="https://www.youtube.com/@ebzadeh"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg><span>YouTube Channel</span></a>
+        <a href="https://t.me/konjidan"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 3 3 10l7 2 2 8 9-17ZM10 12l11-9"/></svg><span>Telegram Channel</span></a>
+        <a href="https://ehsan.bz/about"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>About Me</span></a>
       </nav>
+      <div class="sidebar-more">
+        <p>Elsewhere</p>
+        <a href="https://boardgamegeek.com/user/ehsanbz" target="_blank" rel="noopener noreferrer">BoardGameGeek profile &#8599;</a>
+        <a href="https://www.linkedin.com/in/ehsanbz/" target="_blank" rel="noopener noreferrer">LinkedIn &#8599;</a>
+        <a href="https://github.com/ehsanbz" target="_blank" rel="noopener noreferrer">GitHub &#8599;</a>
+      </div>
     </aside>
 
     <div class="content-area">
@@ -136,9 +148,26 @@
     const sidebar = document.querySelector('.sidebar');
     const icon = toggleButton.querySelector('.icon');
 
+    function setMenuOpen(open) {
+      sidebar.classList.toggle('active', open);
+      toggleButton.setAttribute('aria-expanded', String(open));
+      toggleButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      icon.textContent = open ? '×' : '☰';
+    }
+
     toggleButton.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-      icon.innerHTML = sidebar.classList.contains('active') ? '&times;' : '&#9776;';
+      setMenuOpen(!sidebar.classList.contains('active'));
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && sidebar.classList.contains('active')) {
+        setMenuOpen(false);
+        toggleButton.focus();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (sidebar.classList.contains('active') && !sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
+        setMenuOpen(false);
+      }
     });
   });
 </script>
